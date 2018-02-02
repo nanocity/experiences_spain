@@ -1,0 +1,111 @@
+porposals:
+  porposal: &porposal1
+    id: 1
+    title: Test 1
+    description: Test description
+    dateDescription: Date description
+    images:
+    - url: 234/4535bcd3e9dc7d0dd62acd8cb26b24a8.jpg
+      alt: Image 1
+      type: image
+      position: 1
+    - url: 534/634fdaf2bfab8e9a0c88557396818d2a.jpg
+      alt: Image 2
+      type: image
+      position: 2
+    videos: []
+    price: 1
+    type: 0
+    locations: []
+    languages:
+      - es_ES
+    startDate: 1517526000000
+    endDate: 1519772400000
+    days: 0
+    hours: 3
+    minutes: 0
+    enterprise: Nattule
+    georeferences:
+      - lon: "-3.7037901999999576"
+        lat: "40.4167754"
+    categories: []
+    profiles:
+      - Jovenes
+    bookEmail: ''
+  porposal2: &porposal2
+    id: 2
+    title: Title
+    description: Description
+
+responses:
+  experience:
+    list: &list
+      empty:
+        body: []
+
+      not_empty:
+        body:
+          - *porposal1
+          - *porposal2
+
+    search: *list
+
+    find:
+      not_found:
+        body:
+          status: error
+          data: {}
+          message: Not exists
+      porposal:
+        body:
+          status: success
+          data: *porposal1
+          message: ''
+
+    save: &saveExperience
+      invalid:
+        body:
+          status: error
+          message: Error validando los datos enviados
+          warning:
+            - (Warn) El campo precio mínimo es obligatorio, y tiene que ser mayor que 0.
+            - (Warn) La fecha de inicio es obligatoria.
+            - (Warn) La fecha de fin es obligatoria.
+            - (Warn) El campo duración de la actividad es obligatorio.
+            - (Warn) Es necesario rellenar el campo de contacto de reserva.
+
+      valid:
+        body:
+          status: success
+          message: ''
+          warning: []
+          data: *porposal1
+
+    translate: *saveExperience
+
+    validate:
+      invalid:
+        body:
+          status: error
+          data: ''
+          message: Mensaje de error
+
+      valid:
+        body:
+          status: success
+          data: nil
+          message: ''
+
+  image:
+    save:
+      invalid:
+        body:
+          status: error
+          message: Mensaje de error
+          data: ''
+
+      valid:
+        body:
+          status: success
+          message: ''
+          data: '342/ad7897f9877e79797923.jpg'
