@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Luis Ciudad".freeze]
-  s.date = "2018-02-09"
+  s.date = "2018-02-12"
   s.description = "longer description of your gem".freeze
   s.email = "lciugar@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -43,7 +43,6 @@ Gem::Specification.new do |s|
     "lib/experiences_spain/resource.rb",
     "lib/experiences_spain/validation.rb",
     "lib/experiences_spain/version.rb",
-    "lib/experiences_spain/video.rb",
     "spec/api/find_spec.rb",
     "spec/api/list_spec.rb",
     "spec/api/save_spec.rb",

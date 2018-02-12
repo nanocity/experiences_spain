@@ -18,7 +18,6 @@ require 'experiences_spain/api_resource'
 
 require 'experiences_spain/experience'
 require 'experiences_spain/image'
-require 'experiences_spain/video'
 require 'experiences_spain/validation'
 
 # Exceptions

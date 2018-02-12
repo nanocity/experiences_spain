@@ -17,9 +17,10 @@ module ExperiencesSpain
 
     attributes :id, :title, :description,
       :price, :book_url, :book_email, :locations, :georeferences, :languages,
-      :start_date, :end_date, :date_description, :days, :hours, :minutes, :type, :categories, :profiles
+      :start_date, :end_date, :date_description, :days, :hours, :minutes, :type, :categories, :profiles,
+      :videos
 
-    nested_resources :images, :videos
+    nested_resources :images
 
     def initialize(attributes = {})
       @id = -1
