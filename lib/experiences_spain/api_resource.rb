@@ -29,11 +29,11 @@ module ExperiencesSpain
 
         # List and Search always return an Array even though it may be empty.
         if data.is_a? Array
-          data.map { |element| new(element.deep_rekey { |k| k.snakecase.to_sym }) }
+          data.map { |element| new(element.deep_rekey { |k| k.underscore.to_sym }) }
 
         # Find and Save returns a Hash with a status associated
         elsif data.is_a? Hash
-          resource = new(data['data'].deep_rekey { |k| k.snakecase.to_sym })
+          resource = new(data['data'].deep_rekey { |k| k.underscore.to_sym })
           if data['status'] == 'error'
             resource.errors << data['message']
           end
