@@ -3,10 +3,8 @@ require 'httparty'
 require 'facets/kernel/deep_clone'
 require 'facets/hash/deep_rekey'
 
-unless defined?(Rails)
-  require 'facets/string/camelcase'
-  require 'facets/string/snakecase'
-end
+require 'facets/string/camelcase' unless defined?(Rails)
+require 'facets/string/snakecase'
 
 require 'experiences_spain/client'
 
