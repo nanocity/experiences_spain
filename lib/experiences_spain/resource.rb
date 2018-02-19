@@ -43,7 +43,7 @@ module ExperiencesSpain
           [attribute, send(attribute)]
         end + 
         self.class.nested_resources.map do |resources|
-          [resources, send(resources).map(&:to_hash)]
+          [resources, send(resources)&.map(&:to_hash)]
         end
       ].delete_if { |_, v| v.nil? }
     end
